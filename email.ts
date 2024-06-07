@@ -2,6 +2,7 @@ import sendgrid from "@sendgrid/mail";
 import dotenv from "dotenv";
 import { Router } from "express";
 import express, { Request, Response, NextFunction } from "express";
+import { Email } from "./types";
 
 const router: Router = express.Router();
 
@@ -37,11 +38,6 @@ router.post(
 
 if (!process.env.SENDGRID_API_KEY) {
   throw new Error("SENDGRID_API_KEY is missing");
-}
-interface Email {
-  email: string;
-  subject?: string;
-  text?: string;
 }
 
 export const sendEmail = async ({ email, subject, text }: Email) => {
