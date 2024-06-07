@@ -11,6 +11,6 @@ app.get("/", (req, res) => {
   res.send(process.env.JAMI);
 });
 
-app.post("/send-mail", email);
+app.use("/send-mail", email);
 
 export default app;
